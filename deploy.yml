@@ -1,0 +1,30 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 根据你的主分支名称调整，可能是master或其他分支
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # 安装依赖（以Hugo为例）
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      # 构建博客
+      - name: Build
+        run: hugo --minify
+
+      # 部署到GitHub Pages
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          branch: gh-pages  # 部署到的分支，GitHub Pages将从这个分支提供服务
+          folder: public  # 构建输出的文件夹，Hugo默认输出到public
+          clean: true  # 在部署前清理gh-pages分支
