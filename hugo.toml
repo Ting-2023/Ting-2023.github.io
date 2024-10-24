@@ -2,3 +2,52 @@ baseURL = 'https://ting-2023.github.io/'
 languageCode = 'zh-cn'
 title = 'Ting的博客'
 theme = 'anatole'
+
+[params]
+title = "Ting的博客"
+author = "Ting"
+description = "记录一点点的进步和思考"
+profilePicture = "images/村庄.jpg"
+
+summarylength = 10
+enableEmoji = true
+enableRobotsTXT = true
+
+
+
+# Syntax highlighting
+pygmentsUseClasses = true   
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+
+# Localized dates requires Hugo version 0.87.0
+localizedDates = false
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+        unsafe=true
+
+[taxonomies]
+    category = "categories"
+    series = "series"
+    tag = "tags"
+
+[related]
+  includeNewer = true
+  threshold = 80
+  toLower = true
+[[related.indices]]
+  name = 'keywords'
+  weight = 100
+[[related.indices]]
+  name = 'tags'
+  weight = 80
+
+[services]
+# Enable Disqus.Disqus.Shortname
+  [services.disqus]
+    #shortname = 'your-disqus-shortname'
+# Google Analytics
+  [services.googleAnalytics]
+    #ID = 'G-MEASUREMENT_ID'
